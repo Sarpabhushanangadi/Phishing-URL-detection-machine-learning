@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Detection</title>
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/background.jpeg' %}");
+            background-size: cover; /* Adjust the size as needed */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Keeps the background fixed */
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <ul>
+                <li><a href="">Welcome people </a></li>
+                <li><a href="http://127.0.0.1:8000/dataset">Dataset</a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="text-box">
+        <h1>Malicious website detector</h1>
+        <a href="http://127.0.0.1:8000/detection" class="hero-btn">Click here to proceed</a>
+    </div>
+</body>
+</html>

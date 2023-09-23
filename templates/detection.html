@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phishing URL Detector</title>
+</head>
+<body>
+    <h1>Phishing URL Detector</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="url">Enter URL:</label>
+        <input type="text" id="url" name="url" required>
+        <button type="submit">Check</button>
+    </form>
+</body>
+</html>
