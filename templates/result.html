@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Phishing URL Detection Result</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cicadians</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-color: #85FFBD;
+background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+
+    }
+    
+  </style>
 </head>
 <body>
-    <h1>Phishing URL Detection Result</h1>
-    <!-- Display detection result here -->
-    <a href="{% url 'home' %}">Back to Home</a>
+  <div class=" flex justify-center items-center min-h-screen">
+    <div class="iamhead flex flex-col gap-8  text-gray-700 ">
+      <h1 class=" text-[54px] font-bold -translate-y-14  ">Phishing URL Detection Result</h1>
+      <p class="font-semibold text-xl ">URL: {{ url }}</p>
+      <p class="font-semibold text-xl ">Prediction: {{ prediction }}</p>
+      <p class="font-semibold text-xl">Probability Phishing: {{ probability_phishing }} %</p>
+      <p class="font-semibold text-xl">Probability Non-Phishing: {{ probability_non_phishing }} %</p>
+      <button class="border bg-slate-100 max-w-[150px] text-blue-500 rounded-lg py-3 text-base font-bold hover:scale-105 transition-all duration-200 "><a href="{% url 'home' %}">Back to Home <i class="fa-solid fa-arrow-right fa-sm"></i></a></button>
+    </div>
+
+  </div>
+  <script src="https://kit.fontawesome.com/583f1a1503.js" crossorigin="anonymous"></script>
 </body>
 </html>

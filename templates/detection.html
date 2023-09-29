@@ -1,16 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Phishing URL Detector</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cicadians</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-image: url("{% static 'images/background.jpeg' %}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      backdrop-filter: blur(5px);
+    }
+  </style>
 </head>
 <body>
-    <h1>Phishing URL Detector</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="url">Enter URL:</label>
-        <input type="text" id="url" name="url" required>
-        <button type="submit">Check</button>
-    </form>
+  <div class="fitr flex justify-center items-center min-h-screen">
+    <div class="iamhead flex flex-col gap-5 text-center text-gray-700 items-center hover:scale-125 transition-all duration-500">
+      <h1 class=" text-6xl font-bold ">Phishing Website</h1>
+      <span class="text-6xl font-bold">Detector</span>
+      
+      <form method="post">
+      {% csrf_token %}
+      <label for="url" class="text-lg font-bold ">Enter the URL:-&ensp;</label>
+      
+        <input type="url" name="url" id="url" class="border-2 border-black rounded-md w-60 py-1 -mb-1" placeholder="&ensp;&ensp;https://">
+        
+        <button class="border py-2 px-8 rounded-lg bg-blue-400 text-white hover:scale-110 transition-all duration-200 font-semibold block translate-y-10 translate-x-28  " type="submit">Search &ensp; <i class="fa-solid fa-magnifying-glass fa-beat fa-sm"></i></button>
+
+
+      </form>
+    </div>
+
+  </div>
+  <script src="https://kit.fontawesome.com/583f1a1503.js" crossorigin="anonymous"></script>
 </body>
 </html>

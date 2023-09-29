@@ -1,32 +1,197 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Detection</title>
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <title>Cicadians</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background-image: url("{% static 'images/background.jpeg' %}");
-            background-size: cover; /* Adjust the size as needed */
-            background-repeat: no-repeat;
-            background-attachment: fixed; /* Keeps the background fixed */
-        }
+        
+        *, *:before, *:after 
+{ box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+  min-height: 780px;
+  color: #e0e4cc;
+  font-size: 1.2em;
+  line-height: 1.6;
+  /* background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); */
+background-image: url("{% static 'images/sihbg.gif' %}");
+background-repeat: no-repeat;
+background-size:cover;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  backdrop-filter: blur(5px);
+}
+
+label .menu {
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  z-index: 100;
+  width: 200px;
+  height: 200px;
+  background: #FFF;
+  border-radius: 50% 50% 50% 50%;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  box-shadow: 0 0 0 0 #FFF, 0 0 0 0 #FFF;
+  cursor: pointer;
+  
+}
+
+label .hamburger {
+  position: absolute;
+  top: 135px;
+  left: 50px;
+  width: 30px;
+  height: 2px;
+  background: #69D2e7;
+  display: block;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+label .hamburger:after, label .hamburger:before {
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #69d2e7;
+}
+
+label .hamburger:before { top: -10px; }
+
+label .hamburger:after { bottom: -10px; }
+
+label input { display: none; }
+
+label input:checked + .menu {
+  box-shadow: 0 0 0 100vw #FFF, 0 0 0 100vh #FFF;
+  border-radius: 0;
+  
+}
+
+label input:checked + .menu .hamburger {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  
+}
+
+label input:checked + .menu .hamburger:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  bottom: 0;
+  
+}
+
+label input:checked + .menu .hamburger:before {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  top: 0;
+  
+}
+
+label input:checked + .menu + ul { opacity: 1; }
+
+label ul {
+  z-index: 200;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  -webkit-transition: .25s 0s ease-in-out;
+  transition: .25s 0s ease-in-out;
+}
+
+label a {
+  margin-bottom: 1em;
+  display: block;
+  color: #f38630;
+  text-decoration: none;
+  
+}
+.soh{
+  border-right: solid 3px rgba(0,255,0,.75);
+  white-space: nowrap;
+  overflow: hidden;    
+  font-family: 'Source Code Pro', monospace;  
+  font-size: 28px;
+  color: rgba(255,255,255,.70);
+  animation: animated-text 4s steps(29,end) 2s 2 normal both, animated-cursor 600ms steps(29,end) infinite;
+
+}
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 472px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(0,255,0,.75);}
+  to{border-right-color: transparent;}
+}
+
+
+
     </style>
 </head>
 <body>
-    <div class="banner">
-        <div class="navbar">
-            <ul>
-                <li><a href="">Welcome people </a></li>
-                <li><a href="http://127.0.0.1:8000/dataset">Dataset</a></li>
-                
+    <nav class=" gofor ">
+        <div class="relative w-[1080px] mx-auto flex items-center justify-between ">
+          
+            <ul class="flex gap-6">
+                <li class="text-white font-mullish py-8 text-lg hover: cursor-pointer 
+                transition-all duration-2000 group relative ">
+                <a href="#">About Us</a>
+                <div class="w-full h-1 absolute bottom-0 hidden group-hover:block bg-lime-300 transition-all duration-200"></div>
+                </li>
+                <li class="text-white font-mullish py-8 text-lg hover: cursor-pointer 
+                transition-all duration-200 group relative ">
+                <a href="http://127.0.0.1:8000/dataset">Data Set</a>
+                <div class="w-full h-1 absolute bottom-0 hidden group-hover:block bg-lime-300 transition-all duration-200"></div>
+                </li>
+              
             </ul>
+            
         </div>
-    </div>
+    </nav>
+    <!-- menu bar -->
+    <label>
+        <input type="checkbox">
+        <span class="menu"> <span class="hamburger"></span> </span>
+        <ul>
+          <li class="hover:scale-150 transition-all duration-500 text-center "> <a href="#">Home &ensp;<i class="fa-solid fa-house-chimney fa-lg"></i></a> </li>
+          <li class="hover:scale-150 transition-all duration-500 text-center"> <a href="#">About &ensp;<i class="fa-regular fa-address-card fa-lg"></i></a> </li>
+          <li class="hover:scale-150 transition-all duration-500 text-center"> <a href="#">Contact &ensp;<i class="fa-solid fa-phone"></i></a> </li>
+        </ul>
+    </label>
+        <!-- main container -->
+        <div class="w-full flex justify-center flex-col items-center  gap-10 my-10">
+            <div class="w-[1080px] flex justify-center">
+                <h2 class="text-5xl text-white font-bold">WELCOME !!</h2>
+            </div>
+            <p class="font-bold  text-4xl soh text-white">We are team Cicada</p>
+         <h1 class="text-white text-6xl font-semibold hover:scale-110 transition-all duration-200">Phishing Website Detector</h1>
+            <a href="http://127.0.0.1:8000/detection "><button class="border  px-10 py-2 rounded-md bg-lime-300 text-black  font-bold mt-[30px] hover:scale-105 transition-all duration-200">Click Here to Detect&nbsp;:- &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-secret
+              fa-bounce fa-xl"></i></button></a>
+           
 
-    <div class="text-box">
-        <h1>Malicious website detector</h1>
-        <a href="http://127.0.0.1:8000/detection" class="hero-btn">Click here to proceed</a>
-    </div>
+        </div>
+
+        <script src="https://kit.fontawesome.com/583f1a1503.js" crossorigin="anonymous"></script>
 </body>
 </html>
+
